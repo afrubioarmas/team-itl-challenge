@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:team_intl_challenge/view/screens/dashboard/dashboard.dart';
+import 'package:team_intl_challenge/view/screens/authentication_screen/authentication_screen.dart';
+import 'package:team_intl_challenge/view/screens/factory_creation_screen/factory_creation_screen.dart';
+import 'package:team_intl_challenge/view/screens/homescreen/homescreen.dart';
 
 import 'app_routes.dart';
 
 class AppNavigator {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  Future<void> toDashboard() {
-    return _pushRoute(AppRoutes.dashboard, clearStack: true);
+  Future<void> toHome() {
+    return _pushRoute(AppRoutes.home, clearStack: true);
   }
 
   Future<void> toAuthentication() {
     return _pushRoute(AppRoutes.authentication, clearStack: true);
+  }
+
+  Future<void> toFactoryCreation() {
+    return _pushRoute(AppRoutes.factoryCreation);
   }
 
   popScreen() {
@@ -20,11 +26,14 @@ class AppNavigator {
 
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutes.dashboard:
-        return MaterialPageRoute(builder: (context) => Dashboard());
+      case AppRoutes.home:
+        return MaterialPageRoute(builder: (context) => Homescreen());
 
       case AppRoutes.authentication:
-        return MaterialPageRoute(builder: (context) => Text("Authentication"));
+        return MaterialPageRoute(builder: (context) => AuthenticationScreen());
+
+      case AppRoutes.factoryCreation:
+        return MaterialPageRoute(builder: (context) => FactoryCreationScreen());
     }
     return null;
   }

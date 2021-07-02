@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   loadAppData() async {
     await Future.delayed(Duration(seconds: 3));
-    locator<AppNavigator>().toDashboard();
+    locator<AppNavigator>().toAuthentication();
   }
 
   @override
@@ -22,9 +22,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Container(
-          width: MediaQuery.of(context).size.height * 0.5,
-          height: MediaQuery.of(context).size.height * 0.5,
-          child: Center(child: Text("Splash!")),
+          width: MediaQuery.of(context).size.height * 0.3,
+          height: MediaQuery.of(context).size.height * 0.2,
+          child: Center(child: Image.asset("assets/logo.png")),
         ),
       ),
     );

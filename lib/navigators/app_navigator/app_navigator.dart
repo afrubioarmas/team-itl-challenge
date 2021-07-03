@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:team_intl_challenge/model/factory.dart';
 import 'package:team_intl_challenge/view/screens/authentication_screen/authentication_screen.dart';
 import 'package:team_intl_challenge/view/screens/factory_creation_screen/factory_creation_screen.dart';
+import 'package:team_intl_challenge/view/screens/factory_creation_screen/factory_detail_screen.dart';
 import 'package:team_intl_challenge/view/screens/homescreen/homescreen.dart';
 
 import 'app_routes.dart';
@@ -20,6 +22,10 @@ class AppNavigator {
     return _pushRoute(AppRoutes.factoryCreation);
   }
 
+  Future<void> toFactoryDetail(Factory factory) {
+    return _pushRoute(AppRoutes.factoryDetail, arguments: factory);
+  }
+
   popScreen() {
     navigatorKey.currentState.pop();
   }
@@ -34,6 +40,10 @@ class AppNavigator {
 
       case AppRoutes.factoryCreation:
         return MaterialPageRoute(builder: (context) => FactoryCreationScreen());
+
+      case AppRoutes.factoryDetail:
+        return MaterialPageRoute(
+            builder: (context) => FactoryDetailScreen(settings.arguments));
     }
     return null;
   }

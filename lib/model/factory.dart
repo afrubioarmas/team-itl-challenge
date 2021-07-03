@@ -2,9 +2,9 @@ class Factory {
   String name;
   String address;
   bool active;
-  int capacityPerSecond;
+  double capacityPerSecond;
   double errorPercentage;
-  int amount;
+  double amount;
 
   Factory(
       {this.name,

@@ -4,12 +4,18 @@ class FormTextField extends StatelessWidget {
   String label;
   bool isNumber;
   bool isPassword;
+  TextEditingController textEditingController;
 
-  FormTextField({this.label, this.isNumber = false, this.isPassword = false});
+  FormTextField(
+      {this.label,
+      this.isNumber = false,
+      this.isPassword = false,
+      this.textEditingController});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: textEditingController,
       obscureText: isPassword,
       keyboardType: isNumber ? TextInputType.number : TextInputType.text,
       cursorColor: Theme.of(context).cardColor,
